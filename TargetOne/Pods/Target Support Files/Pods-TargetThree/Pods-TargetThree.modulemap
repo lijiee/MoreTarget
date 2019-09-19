@@ -1,0 +1,6 @@
+framework module Pods_TargetThree {
+  umbrella header "Pods-TargetThree-umbrella.h"
+
+  export *
+  module * { export * }
+}

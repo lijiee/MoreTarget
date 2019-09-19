@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  lane :deploy do
+  desc "企业版"
+  gym(
+    scheme: ENV['SCHEME_NAME'],   #工程下要打包的项目,如果一个工程有多个项目则用[项目1,项目2]
+    export_method: "enterprise", #打包的方式, development/adhoc/enterprise/appstore
+    output_directory: ENV['SCHEME_PATH'],  #指定ipa最后输出的目录
+     export_xcargs: "-allowProvisioningUpdates",
+
+        export_options:{ 
+
+            # inHouse发布时需要的manifest.plist文件中需要配置的项
+            manifest: {
+                appURL: "http://ddns.chually.cn:29823/cmn/ZHKZJ.ipa",
+                displayImageURL: "https://example.com/app.png",
+                fullSizeImageURL: "https://example.com/app.png",
+            },
+        }
+    )
+
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+
+
+  desc "企业版"
+  lane :deploy_all do
+    cocoapods
+    sh "fastlane deploy --env TargetOne"
+    sh "fastlane deploy --env TargetTwo"
+    sh "fastlane deploy --env TargetThree"
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+
+end

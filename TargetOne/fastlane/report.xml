@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.015458">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: cocoapods" time="3.816271">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: fastlane deploy --env TargetOne" time="26.031121">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: fastlane deploy --env TargetTwo" time="21.490546">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: fastlane deploy --env TargetThree" time="20.82931">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

@@ -1,0 +1,30 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+def pods
+  use_frameworks!
+#    pod 'RxSwift', '~> 4.4.1'#响应式编程
+#    pod 'RxCocoa', '~> 4.4.1' #响应式cocoa
+pod 'Toast-Swift'
+
+end
+def installPods
+  require 'xcodeproj'
+  project_path = './TargetOne.xcodeproj'
+  project = Xcodeproj::Project.open(project_path)
+  project.targets.each do |target|
+    target "#{target.name}" do
+      puts "target: #{target.name} start install"
+      pods
+      end
+    end
+  end
+installPods
+
+#abstract_target 'AAAA' do
+#
+#  pod 'RxSwift', '~> 4.4.1'#响应式编程
+#  pod 'RxCocoa', '~> 4.4.1' #响应式cocoa
+#
+#target 'TargetOne'
+#target 'TargetTwo'
+
